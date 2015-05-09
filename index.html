@@ -3,9 +3,15 @@
         <title></title>
         <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css" rel="stylesheet" type="text/css">
         <link href="./index.css" rel="stylesheet">
+<<<<<<< HEAD
         <link href='http://fonts.googleapis.com/css?family=Oswald:700' rel='stylesheet' type='text/css'>
         <script type="text/javascript" src="index.js"></script>
+=======
+
+
+>>>>>>> 07b96a8e5f7f4a54255feae7adbe5c4d2c3098da
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+                <script type="text/javascript" src="index.js"></script>
     </head>
     <body>
         <audio id="soundtrack"></audio>
@@ -53,6 +59,7 @@
                     <div class="col-md-3" id="score">the score</div>
                     <div class="col-md-3" id="highscore">the high score</div>
                     <div class="col-md-3"></div>
+                    <a class="btn btn-lg btn-success" href="#" role="button" id="startbutton">Start Game!!!!!!!!!!!</a>
                 </div>
         </div>
         <script>
@@ -105,8 +112,8 @@
                 }
             } updateSounds();
             
-            function display () {
-                var board = [[0,2,4,0],[0,0,0,0],[16,4,8,32],[4,8,16,32]];
+            function display (board) {
+                //var board = [[0,2,4,0],[0,0,0,0],[16,4,8,32],[4,8,16,32]];
                 for (var i = 0; i < 4; i++) {
                     for(var j = 0; j < 4; j++) {
                         var plot = "#b" + i +j;
@@ -145,8 +152,13 @@
                     }
                     
                 }
+<<<<<<< HEAD
                 updateSounds();
             } display();
+=======
+                
+            } display(blankslate());
+>>>>>>> 07b96a8e5f7f4a54255feae7adbe5c4d2c3098da
             
             function getBoard () {
                
