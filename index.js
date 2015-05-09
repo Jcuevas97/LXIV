@@ -2,9 +2,9 @@
 
 
 var board=[[0,1,2,3],
-           [0,0,2,0],
-           [0,1,0,3],
-           [0,1,2,0]];
+           [0,1,2,3],
+           [0,1,2,3],
+           [0,1,2,3]];
 document.onkeyup = checkKey;
 
 function checkKey(e) {
@@ -48,9 +48,73 @@ function reverse(board) {
 function rotateclock(board){
     return reverse(transpose(board));
 }
-function moveup(board,row,col){
-    if();
-    if else();
+
+function moveup(board, row, col){
+    for (var i = row; i >= 1; i--) {
+        if(board[row-1][col]==0){
+            board[row-1][col]=board[row][col]
+            board[row][col]=0
+        }
+    }
+}
+function moveallup(board){
+    for (var row=1; row<board.length; row++){
+        for (var col=0; col<board[row].length; col++){
+            moveup(board, row, col);
+        }
+    }
+}
+function merge(board){
+    for (var row=1; row<board.length; row++){
+        for (var col=0; col<board[row].length; col++){
+            if(board[row-1][col]==board[row][col]){
+                board[row-1][col]=board[row-1][col]*2
+                board[row][col]=0
+            }
+        }
+    }
+}
+function handle(board,key){
+    if (e.keyCode == '38') {
+        // up arrow
+        moveup(board);
+        merge(board);
+        moveup(board);
+    }
+    else if (e.keyCode == '40') {
+        // down arrow
+        board=rotateclock(board);
+        board=rotateclock(board);
+        moveup(board);
+        merge(board);
+        moveup(board);
+        board=rotateclock(board);
+        board=rotateclock(board);
+    }
+    else if (e.keyCode == '37') {
+       // left arrow
+        board=rotateclock(board);
+        moveup(board);
+        merge(board);
+        moveup(board);
+        board=rotateclock(board);
+        board=rotateclock(board);
+        board=rotateclock(board);
+    }
+    else if (e.keyCode == '39') {
+       // right arrow
+        board=rotateclock(board);
+        board=rotateclock(board);
+        board=rotateclock(board);
+        moveup(board);
+        merge(board);
+        moveup(board);
+        board=rotateclock(board);
+    }
+}
+
+function addrand(board){
+    
     
     
     
