@@ -16,7 +16,7 @@ function checkKey(e) {
         return;
     }
     var sound = document.getElementById("keypresssound");
-                            sound.loop = true;
+                            sound.loop = false;
                             sound.src = "./audioloops/press.wav";
                             sound.play();
     console.log(e.keyCode);
