@@ -97,8 +97,14 @@
                                 default:
                                     soundfile = "audioloops/looperman-l-0630386-0080180-mrfunktastic-epic-house-syths-epic1.wav";
                             }
+                            
+                            
                             var sound = document.getElementById("soundtrack");
                             sound.loop = true;
+                            Console.log(sound.src);
+                            if (sound.src === soundfile)
+                                break;
+                            
                             sound.src = soundfile;
                             sound.play();
                             
