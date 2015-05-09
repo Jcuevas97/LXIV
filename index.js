@@ -30,7 +30,15 @@ function checkKey(e) {
     console.log(after);
     console.log("GetBoard after:");
     console.log(getBoard());
-   
+    var s= score(after);
+    $("#score").html(s);
+    var high =  $("#highscore").text();
+    if (high == "the high score") {
+        $("#highscore").html(s);
+    } else {
+        var intScore = parseInt($("#highscore").text());
+        if(s>intScore){$("#highscore").html(s)}
+    }
 }
 function blankslate(){
     return [[0,0,0,0],[0,0,0,0],[0,0,0,0],[0,0,0,0]];
@@ -162,7 +170,13 @@ function addrand(board){
     }
     
 }
-
-
-
-
+function score(board){
+    var count=0;
+    for (var row=0; row<board.length; row++){
+        for (var col=0; col<board[row].length; col++){
+            count=count+board[row][col];
+            
+        }
+    }
+    return count;
+}
