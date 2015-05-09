@@ -56,16 +56,15 @@
                     <div class="col-md-3" id="score">the score</div>
                     <div class="col-md-3" id="highscore">the high score</div>
                     <div class="col-md-3"></div>
-                    <a class="btn btn-lg btn-success" href="#" role="button" id="startbutton">Start Game!!!!!!!!!!!</a>
+                    <button  id="startbutton">Start Game!!!!!!!!!!!</button>
                 </div>
         </div>
-        <div id="gameStart"></div>
+        <div id="gameStart">false</div>
         <script>
         
-            var gameStart = false;
             
             function updateSounds () {
-                if ( gameStart === false) {
+                if ( $("#gameStart").text() === "false") {
 
                     var sound = document.getElementById("soundtrack");
                     sound.loop = true;

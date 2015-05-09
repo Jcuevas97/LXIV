@@ -1,11 +1,20 @@
 //display(blankslate());
-var gameStart = false;
-$("#startbutton").click(function() {
-    display(blankslate());
- });
+
 document.onkeyup = checkKey;
 
+
+$(document).ready(function() {
+ $("#startbutton").click(function() {
+    console.log("clicked");
+    $("#gameStart").html("true");
+    display(blankslate());
+ });   
+});
+
 function checkKey(e) {
+    if ($("#gameStart").text() == "false") {
+        return
+    }
     console.log(e.keyCode);
     e = e || window.event;
     var before = getBoard();
