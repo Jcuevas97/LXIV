@@ -52,14 +52,53 @@
                 </div>
         </div>
         <script>
-            var gameStart = false;
+            var gameStart = true;
             
             function playSounds () {
                 if ( gameStart === false) {
                     var sound = document.getElementById("soundtrack");
                     sound.loop = true;
+                    sound.src = "audioloops/looperman-l-1446101-0084061-mezmusic-afterlife.wav";
+                    sound.play();
+                    
+                } else {
+                    var board = getBoard();
+                    var largest = 0;
+                    for (var i = 0; i < 4; i++) {
+                        for(var j = 0; j < 4; j++) {
+                            if (board[i][j] > largest)
+                                largest = board[i][j];
+                                
+                            var soundfile;
+                            switch (largest) {
+                                case 2:
+                                    soundfile = "audioloops/looperman-l-0630386-0080186-mrfunktastic-epic-house-syths-arps1.wav";
+                                    break;
+                                case 4:
+                                    soundfile = "audioloops/looperman-l-0630386-0080185-mrfunktastic-epic-house-syths-arps2.wav";
+                                    break;
+                                case 8:
+                                    soundfile = "audioloops/looperman-l-0630386-0080183-mrfunktastic-epic-house-syths-chords.wav";
+                                    break;
+                                case 16:
+                                    soundfile = "audioloops/looperman-l-0630386-0080181-mrfunktastic-epic-house-syths-clean-synth.wav";
+                                    break;
+                                case 32:
+                                    soundfile = "audioloops/looperman-l-0630386-0080178-mrfunktastic-epic-house-syths-pluck.wav";
+                                    break;
+                                default:
+                                    soundfile = "audioloops/looperman-l-0630386-0080180-mrfunktastic-epic-house-syths-epic1.wav";
+                            }
+                            var sound = document.getElementById("soundtrack");
+                            sound.loop = true;
+                            sound.src = soundfile;
+                            sound.play();
+                            
+                        }
+                        
+                    }
                 }
-            }
+            } playSounds();
             
             function display (board) {
                 //var board = [[0,2,4,0],[0,0,0,0],[16,4,8,32],[4,8,16,32]];
@@ -105,13 +144,14 @@
             } display(blankslate());
             
             function getBoard () {
+                var plot = "#b" + i +j;
                 var board = [[0, 0, 0, 0],[0,0,0,0],[0,0,0,0],[0,0,0,0]];
                 for (var i = 0; i < 4; i++) {
                     for(var j = 0; j < 4; j++) {
                         $(plot).text(board[i][j]);
                         if ($(plot).text() !== "") {
                             board[i][j] = $(plot).text();
-        
+                            console.log(board);
                         }
                     }
                 } return board;
