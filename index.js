@@ -1,28 +1,23 @@
-
-
-
-var board=[[0,1,2,3],
-           [0,1,2,3],
-           [0,1,2,3],
-           [0,1,2,3]];
+//display(blankslate());
+var gameStart = false;
+$("#startbutton").click(function() {
+    display(blankslate());
+ });
 document.onkeyup = checkKey;
 
 function checkKey(e) {
-
+    console.log(e.keyCode);
     e = e || window.event;
-
-    if (e.keyCode == '38') {
-        // up arrow
-    }
-    else if (e.keyCode == '40') {
-        // down arrow
-    }
-    else if (e.keyCode == '37') {
-       // left arrow
-    }
-    else if (e.keyCode == '39') {
-       // right arrow
-    }
+    var before = getBoard();
+    console.log("Before:");
+    console.log(before);
+    var after=handle(before,e.keyCode);
+    display(after);
+    console.log("AFter:");
+    console.log(after);
+    console.log("GetBoard after:");
+    console.log(getBoard());
+   
 }
 function blankslate(){
     return [[0,0,0,0],[0,0,0,0],[0,0,0,0],[0,0,0,0]];
@@ -81,13 +76,13 @@ function merge(board){
 //
 //
 function handle(board,key){
-    if (key == '38') {
+    if (key == '65') {
         // up arrow
         moveallup(board);
         merge(board);
         moveallup(board);
     }
-    else if (key == '40') {
+    else if (key == '68') {
         // down arrow
         board=rotateclock(board);
         board=rotateclock(board);
@@ -97,7 +92,7 @@ function handle(board,key){
         board=rotateclock(board);
         board=rotateclock(board);
     }
-    else if (key == '37') {
+    else if (key == '87') {
        // left arrow
         board=rotateclock(board);
         moveallup(board);
@@ -107,7 +102,7 @@ function handle(board,key){
         board=rotateclock(board);
         board=rotateclock(board);
     }
-    else if (key == '39') {
+    else if (key == '83') {
        // right arrow
         board=rotateclock(board);
         board=rotateclock(board);
@@ -116,6 +111,9 @@ function handle(board,key){
         merge(board);
         moveallup(board);
         board=rotateclock(board);
+    }
+    else{
+        return;
     }
     addrand(board);
     return board;

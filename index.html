@@ -6,7 +6,7 @@
 
 
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
-                <script type="text/javascript" src="index.js"></script>
+        <script type="text/javascript" src="index.js"></script>
     </head>
     <body>
         <audio id="soundtrack"></audio>
@@ -51,11 +51,11 @@
                     <a class="btn btn-lg btn-success" href="#" role="button" id="startbutton">Start Game!!!!!!!!!!!</a>
                 </div>
         </div>
+        <div id="gameStart"></div>
         <script>
-            var gameStart = true;
             
             function playSounds () {
-                if ( gameStart === false) {
+                if ( #gameStart === false) {
                     var sound = document.getElementById("soundtrack");
                     sound.loop = true;
                     sound.src = "audioloops/looperman-l-1446101-0084061-mezmusic-afterlife.wav";
@@ -144,14 +144,16 @@
             } display(blankslate());
             
             function getBoard () {
-                var plot = "#b" + i +j;
+                console.log("getBoard called");
+                
                 var board = [[0, 0, 0, 0],[0,0,0,0],[0,0,0,0],[0,0,0,0]];
+                var plot;
                 for (var i = 0; i < 4; i++) {
                     for(var j = 0; j < 4; j++) {
-                        $(plot).text(board[i][j]);
+                        plot = "#b" + i +j;
+                        //$(plot).text(board[i][j]);
                         if ($(plot).text() !== "") {
-                            board[i][j] = $(plot).text();
-                            console.log(board);
+                            board[i][j] = parseInt($(plot).text());
                         }
                     }
                 } return board;
