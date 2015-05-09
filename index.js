@@ -1,4 +1,4 @@
-document.onkeydown = checkKey;
+document.onkeyup = checkKey;
 
 function checkKey(e) {
 
