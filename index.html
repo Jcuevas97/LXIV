@@ -71,24 +71,29 @@
                 } else {
                     var board = getBoard();
                     
+                    console.log(board);
                     var largest = 0;
                     for (var i = 0; i < 4; i++) {
                         for(var j = 0; j < 4; j++) {
                             if (board[i][j] > largest)
                                 largest = board[i][j];
+                        }
                                 
                             var soundfile;
+                            
+                            console.log("Largest: " + largest);
                             switch (largest) {
                                 case 0:
-                                    break;
-                                case 2:
-                                    soundfile = "audioloops/looperman-l-0630386-0080186-mrfunktastic-epic-house-syths-arps1.wav";
+                                case 1:
                                     break;
                                 case 4:
+                                    soundfile = "audioloops/looperman-l-0630386-0080186-mrfunktastic-epic-house-syths-arps1.wav";
+                                    break;
+                                case 2:
                                     soundfile = "audioloops/looperman-l-0630386-0080185-mrfunktastic-epic-house-syths-arps2.wav";
                                     break;
                                 case 8:
-                                    soundfile = "audioloops/looperman-l-0630386-0080183-mrfunktastic-epic-house-syths-chords.wav";
+                                    soundfile = "audioloops/looperman-l-0630386-0080179-mrfunktastic-epic-house-syths-mallets.wav";
                                     break;
                                 case 16:
                                     soundfile = "audioloops/looperman-l-0630386-0080181-mrfunktastic-epic-house-syths-clean-synth.wav";
@@ -103,14 +108,13 @@
                             
                             var sound = document.getElementById("soundtrack");
                             sound.loop = true;
-                            Console.log(sound.src);
-                            if (sound.src === soundfile)
+                            console.log(sound.src);
+                            if (sound.src.indexOf(soundfile) > -1)
                                 break;
                             
                             sound.src = soundfile;
                             sound.play();
                             
-                        }
                         
                     }
                 }
