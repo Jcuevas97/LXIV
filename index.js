@@ -5,7 +5,7 @@ document.onkeyup = checkKey;
 
 $(document).ready(function() {
  $("#startbutton").click(function() {
-    console.log("clicked");
+    //console.log("clicked");
     $("#gameStart").html("true");
     display(blankslate());
  });   
@@ -20,16 +20,11 @@ function checkKey(e) {
                             sound.src = "./audioloops/press.wav";
                             sound.play();
     console.log(e.keyCode);
-    e = e || window.event;
     var before = getBoard();
-    console.log("Before:");
-    console.log(before);
+    // console.log("Before:");
+    // console.log(before);
     var after=handle(before,e.keyCode);
     display(after);
-    console.log("AFter:");
-    console.log(after);
-    console.log("GetBoard after:");
-    console.log(getBoard());
     var s= score(after);
     $("#score").html(s);
     var high =  $("#highscore").text();
@@ -39,6 +34,9 @@ function checkKey(e) {
         var intScore = parseInt($("#highscore").text());
         if(s>intScore){$("#highscore").html(s)}
     }
+
+   
+
 }
 function blankslate(){
     return [[0,0,0,0],[0,0,0,0],[0,0,0,0],[0,0,0,0]];
