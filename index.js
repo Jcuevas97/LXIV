@@ -13,8 +13,12 @@ $(document).ready(function() {
 
 function checkKey(e) {
     if ($("#gameStart").text() == "false") {
-        return
+        return;
     }
+    var sound = document.getElementById("keypresssound");
+                            sound.loop = true;
+                            sound.src = "./audioloops/press.wav";
+                            sound.play();
     console.log(e.keyCode);
     e = e || window.event;
     var before = getBoard();
