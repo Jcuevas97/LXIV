@@ -52,16 +52,15 @@
                     <div class="col-md-3" id="score">the score</div>
                     <div class="col-md-3" id="highscore">the high score</div>
                     <div class="col-md-3"></div>
-                    <a class="btn btn-lg btn-success" href="#" role="button" id="startbutton">Start Game!!!!!!!!!!!</a>
+                    <button  id="startbutton">Start Game!!!!!!!!!!!</button>
                 </div>
         </div>
-        <div id="gameStart"></div>
+        <div id="gameStart">false</div>
         <script>
         
-            var gameStart = false;
             
             function updateSounds () {
-                if ( gameStart === false) {
+                if ( $("#gameStart").text() === "false") {
 
                     var sound = document.getElementById("soundtrack");
                     sound.loop = true;
@@ -79,6 +78,8 @@
                                 
                             var soundfile;
                             switch (largest) {
+                                case 0:
+                                    break;
                                 case 2:
                                     soundfile = "audioloops/looperman-l-0630386-0080186-mrfunktastic-epic-house-syths-arps1.wav";
                                     break;
