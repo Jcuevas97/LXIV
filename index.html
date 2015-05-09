@@ -4,6 +4,8 @@
         <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css" rel="stylesheet" type="text/css">
         <link href="./index.css" rel="stylesheet">
 
+        <link href='http://fonts.googleapis.com/css?family=Oswald:700' rel='stylesheet' type='text/css'>
+
 
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
         <script type="text/javascript" src="index.js"></script>
@@ -13,9 +15,12 @@
         <div id="background">
             <div id="contain" class="container">
                 <div class="row">
+                    <div class="col-md-4"></div>
                     <div class="col-md-4" id="head">-LXIV-</div>
+                    <div class="col-md-4"></div>
                 </div>
                 <div class="row">
+                    <div class="col-md-4"></div>
                     <div class="col-md-4" id="game-board">
                         <div class="table">
                             <div class="row">
@@ -44,18 +49,24 @@
                             </div>
                         </div>
                     </div>
+                    <div class="col-md-4"></div>
                 </div>
                 <div class="row">
-                    <div class="col-md-2" id="score">the score</div>
-                    <div class="col-md-2" id="highscore">the high score</div>
+                    <div class="col-md-3"></div>
+                    <div class="col-md-3" id="score">the score</div>
+                    <div class="col-md-3" id="highscore">the high score</div>
+                    <div class="col-md-3"></div>
                     <a class="btn btn-lg btn-success" href="#" role="button" id="startbutton">Start Game!!!!!!!!!!!</a>
                 </div>
         </div>
         <div id="gameStart"></div>
         <script>
+        
+            var gameStart = false;
             
-            function playSounds () {
-                if ( #gameStart === false) {
+            function updateSounds () {
+                if ( gameStart === false) {
+
                     var sound = document.getElementById("soundtrack");
                     sound.loop = true;
                     sound.src = "audioloops/looperman-l-1446101-0084061-mezmusic-afterlife.wav";
@@ -63,6 +74,7 @@
                     
                 } else {
                     var board = getBoard();
+                    
                     var largest = 0;
                     for (var i = 0; i < 4; i++) {
                         for(var j = 0; j < 4; j++) {
@@ -98,7 +110,7 @@
                         
                     }
                 }
-            } playSounds();
+            } updateSounds();
             
             function display (board) {
                 //var board = [[0,2,4,0],[0,0,0,0],[16,4,8,32],[4,8,16,32]];
@@ -137,20 +149,24 @@
                                 color = "#8B0000"
                         }
                         $(plot).css('background-color', color);
-
                     }
+                    
                 }
-                
+
+                updateSounds();
+  
             } display(blankslate());
+
             
             function getBoard () {
-                console.log("getBoard called");
-                
+
                 var board = [[0, 0, 0, 0],[0,0,0,0],[0,0,0,0],[0,0,0,0]];
                 var plot;
                 for (var i = 0; i < 4; i++) {
                     for(var j = 0; j < 4; j++) {
+
                         plot = "#b" + i +j;
+
                         //$(plot).text(board[i][j]);
                         if ($(plot).text() !== "") {
                             board[i][j] = parseInt($(plot).text());

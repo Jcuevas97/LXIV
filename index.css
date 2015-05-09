@@ -8,9 +8,13 @@
     background-color: #A9A9A9;
     text-align: center;
     margin-top: 20px;
-    padding-top: 10px;
+    line-height: 50px;
+    vertical-align: middle;
     height: 50px;
     border-radius: 10px;
+    font-size: 50px;
+    font-family: 'Oswald', sans-serif;
+    font-weight: bold;
 }
 
 #game-board {
