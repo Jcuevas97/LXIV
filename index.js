@@ -39,6 +39,7 @@ function checkKey(e) {
 
 }
 
+
 function blankslate(){
     return [[0,0,0,0],[0,0,0,0],[0,0,0,0],[0,0,0,0]];
 }
@@ -85,8 +86,6 @@ function merge(board){
             if(board[row-1][col]==board[row][col]){
                 board[row-1][col]=board[row-1][col]*2;
                 board[row][col]=0;
-            } else if (board[row-1][col]!==board[row][col]) {
-                alert("you Lost");
             }
         }
     }
